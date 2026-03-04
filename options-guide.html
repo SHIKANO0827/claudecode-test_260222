@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code 画面の見方ガイド</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Hiragino Sans', 'Meiryo', sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      padding: 16px;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      text-align: center;
+      margin-bottom: 8px;
+      color: #1a1a1a;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .icon {
+      font-size: 2rem;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+    }
+
+    .icon-model  { background: #e8f0fe; }
+    .icon-repo   { background: #e6f4ea; }
+    .icon-branch { background: #fce8e6; }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-top: 4px;
+      font-weight: bold;
+    }
+
+    .badge-blue   { background: #e8f0fe; color: #1967d2; }
+    .badge-green  { background: #e6f4ea; color: #137333; }
+    .badge-red    { background: #fce8e6; color: #c5221f; }
+
+    .description {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: #444;
+      margin-bottom: 12px;
+    }
+
+    .example-box {
+      background: #f8f9fa;
+      border-left: 4px solid #ccc;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .example-box.blue   { border-color: #4285f4; }
+    .example-box.green  { border-color: #34a853; }
+    .example-box.red    { border-color: #ea4335; }
+
+    .example-label {
+      font-weight: bold;
+      margin-bottom: 4px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #888;
+    }
+
+    .tip {
+      background: #fffde7;
+      border: 1px solid #f9a825;
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: #5f4b00;
+    }
+
+    .tip strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Claude Code 下段メニューの見方</h1>
+  <p class="subtitle">初めての方でもわかる、3つの選択肢の説明</p>
+
+  <!-- モデル選択 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="icon icon-model">🤖</div>
+      <div>
+        <div class="card-title">①モデル（AI の種類）</div>
+        <span class="badge badge-blue">例: Default / Sonnet / Opus</span>
+      </div>
+    </div>
+    <p class="description">
+      Claude の「賢さのレベル」を選ぶ項目です。<br>
+      料理で例えると、<strong>使う食材のグレード</strong>のようなものです。
+    </p>
+    <div class="example-box blue">
+      <div class="example-label">選び方の目安</div>
+      <strong>Default（おすすめ）</strong>：ふだん使いに最適。迷ったらこれ！<br>
+      <strong>Sonnet</strong>：バランスが良く、多くの作業に向いている<br>
+      <strong>Opus</strong>：難しい問題に強い上位モデル
+    </div>
+  </div>
+
+  <!-- リポジトリ選択 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="icon icon-repo">📁</div>
+      <div>
+        <div class="card-title">②リポジトリ（作業するフォルダ）</div>
+        <span class="badge badge-green">例: my-project / homepage</span>
+      </div>
+    </div>
+    <p class="description">
+      Claude がコードを読み書きする「プロジェクトのフォルダ」を選びます。<br>
+      引っ越しで例えると、<strong>どの部屋（プロジェクト）で作業するか</strong>を決めるイメージです。
+    </p>
+    <div class="example-box green">
+      <div class="example-label">ポイント</div>
+      「自分が作っているアプリやWebサイトのフォルダ」を選べばOKです。<br>
+      フォルダはGitHubという場所に保存されています。
+    </div>
+  </div>
+
+  <!-- ブランチ選択 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="icon icon-branch">🌿</div>
+      <div>
+        <div class="card-title">③ブランチ（作業の流れ）</div>
+        <span class="badge badge-red">例: main / 機能追加用</span>
+      </div>
+    </div>
+    <p class="description">
+      同じフォルダの中で「どのバージョンで作業するか」を選びます。<br>
+      ノートで例えると、<strong>本番用のページ</strong>と<strong>下書き用のページ</strong>を切り替えるイメージです。
+    </p>
+    <div class="example-box red">
+      <div class="example-label">選び方の目安</div>
+      <strong>main</strong>：完成版・本番用のブランチ（そのまま公開されるもの）<br>
+      <strong>それ以外</strong>：新機能のテスト中・下書き用のブランチ
+    </div>
+  </div>
+
+  <!-- まとめTips -->
+  <div class="tip">
+    <strong>💡 まとめ：3つをひとことで言うと…</strong>
+    🤖 <strong>モデル</strong>＝AIの賢さを選ぶ<br>
+    📁 <strong>リポジトリ</strong>＝どのプロジェクトで作業するかを選ぶ<br>
+    🌿 <strong>ブランチ</strong>＝本番用か下書き用かを選ぶ
+  </div>
+
+</body>
+</html>
